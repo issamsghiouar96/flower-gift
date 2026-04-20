@@ -114,7 +114,7 @@ export default function App() {
       {/* Message card */}
       <div className={`message-card ${showMessage ? "message-card--visible" : ""}`}>
         <div className="message-deco">✦ ✦ ✦</div>
-        <p className="message-salutation">To my dear sweetheart,</p>
+        <p className="message-salutation">To my dear Kenza,</p>
         <p className="message-body">
           I will never stop loving you, supporting you and being there for you.
         </p>
