@@ -2,25 +2,21 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 
 const PETALS = [
-  { angle: 0, delay: 0.3 },
-  { angle: 45, delay: 0.5 },
-  { angle: 90, delay: 0.7 },
-  { angle: 135, delay: 0.9 },
-  { angle: 180, delay: 1.1 },
-  { angle: 225, delay: 1.3 },
-  { angle: 270, delay: 1.5 },
-  { angle: 315, delay: 1.7 },
+  { angle: 0, delay: 0.3 },  // Tulip — 6 petals, evenly spaced (60° apart)
+  { angle: 60, delay: 0.5 },
+  { angle: 120, delay: 0.7 },
+  { angle: 180, delay: 0.9 },
+  { angle: 240, delay: 1.1 },
+  { angle: 300, delay: 1.3 },
 ];
 
 const INNER_PETALS = [
-  { angle: 22, delay: 1.9 },
-  { angle: 67, delay: 2.0 },
-  { angle: 112, delay: 2.1 },
-  { angle: 157, delay: 2.2 },
-  { angle: 202, delay: 2.3 },
-  { angle: 247, delay: 2.4 },
-  { angle: 292, delay: 2.5 },
-  { angle: 337, delay: 2.6 },
+  { angle: 30, delay: 1.6 },  // Orchid inner — 5 petals + 1 lip (slightly larger)
+  { angle: 90, delay: 1.7 },
+  { angle: 150, delay: 1.8 },
+  { angle: 210, delay: 1.9 },
+  { angle: 270, delay: 2.0 },
+  { angle: 330, delay: 2.1 },  // lip petal — rendered bigger below
 ];
 
 function Petal({ angle, delay, size = 1, color1, color2, opened }) {
@@ -86,20 +82,22 @@ export default function App() {
             key={i}
             angle={p.angle}
             delay={p.delay}
-            size={1}
-            color1="#ffb7c5"
-            color2="#e8547a"
+            size={1.1}
+            color1="#f48fb1"
+            color2="#7b1fa2"
             opened={opened}
           />
         ))}
+
+        {/* Orchid inner petals — white/lavender */}
         {INNER_PETALS.map((p, i) => (
           <Petal
             key={i}
             angle={p.angle}
             delay={p.delay}
-            size={0.68}
-            color1="#ffd6e0"
-            color2="#f06292"
+            size={i === 5 ? 0.85 : 0.6}  // last one is the orchid lip — slightly larger
+            color1="#f3e5f5"
+            color2="#ce93d8"
             opened={opened}
           />
         ))}
@@ -114,7 +112,7 @@ export default function App() {
       {/* Message card */}
       <div className={`message-card ${showMessage ? "message-card--visible" : ""}`}>
         <div className="message-deco">✦ ✦ ✦</div>
-        <p className="message-salutation">To my dear sweetheart,</p>
+        <p className="message-salutation">To my dear Kenza,</p>
         <p className="message-body">
           I will never stop loving you, supporting you and being there for you.
         </p>
